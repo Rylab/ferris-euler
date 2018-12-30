@@ -46,7 +46,7 @@ const Euler = {
       process.stdout.write(`Sum so far: ${sum}\r`);
     }
 
-    terms[0] = terms[1];;
+    terms[0] = terms[1];
     terms[1] = newTerm;
   }
  
@@ -133,6 +133,21 @@ const Euler = {
 },
 
 6: (args) => {
+  const limit = args[0] || 100;
+  let squaresSum = 0;
+  let sumSquared = 0;
+
+  process.stdout.write(`summing squares up to limit: ${limit}...\r\n`);
+  for (let i = 1; i <= limit; i++) {
+    squaresSum += i*i;
+    sumSquared += i;
+  }
+  sumSquared = sumSquared * sumSquared;
+
+  return sumSquared - squaresSum;
+},
+
+7: (args) => {
 
 },
 
@@ -142,8 +157,15 @@ const Euler = {
 if (typeof Euler[problemNumber] === 'function') {
   process.stdout.write(`Solving Euler #${problemNumber}... `);
 
+  const nsToMs = BigInt(1e+6);
+  const startTime = process.hrtime.bigint();
   const res = Euler[problemNumber](process.argv.splice(3));
-  process.stdout.write("\r\n" + res + "\r\n");
+  const endTime = process.hrtime.bigint();
+  const runTimeNs = endTime-startTime;
+  const runTimeMs = runTimeNs/nsToMs;
+  const runTime = runTimeMs ? `${runTimeMs} ms` : `${runTimeNs} nanoseconds`;
+
+  process.stdout.write(`\r\n${res} (${runTime})\r\n`);
 
   return res;
 }
