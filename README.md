@@ -1,5 +1,5 @@
 # ferris-euler
-Ferris Euler Project's Day Off
+Ferris Euler's Day Off
 
 Just my attempts at solving interesting Euler Project problems, in JavaScript (mainly).
 
