@@ -1,7 +1,7 @@
 # ferris-euler
-Ferris Euler's Day Off
+Project Euler's Day Off
 
-Just my attempts at solving interesting Euler Project problems, in JavaScript (mainly).
+Just my attempts at solving interesting Project Euler problems, in JavaScript (mainly).
 
 Usage:
 $ node euler [problemNumber] [problem arguments]
